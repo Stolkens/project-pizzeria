@@ -53,7 +53,9 @@
   };
 
   class Product {
+    
     constructor (id, data){
+      
       const thisProduct = this;
       thisProduct.id = id;
       thisProduct.data = data;
@@ -66,7 +68,9 @@
       // console.log('new Product', thisProduct);
       // console.log('id', id);
       // console.log('data', data);
+      
     }
+    
     renderInMenu(){
       const thisProduct = this;
       /* generate HTML based on template */
@@ -81,7 +85,7 @@
     }
     getElements(){
       const thisProduct = this;
-    
+      
       thisProduct.accordionTrigger = thisProduct.element.querySelector(select.menuProduct.clickable);
       thisProduct.form = thisProduct.element.querySelector(select.menuProduct.form);
       // console.log('thisproduct form',thisProduct.form);
@@ -89,6 +93,7 @@
       // console.log('inputy i selecty', thisProduct.formInputs);
       thisProduct.cartButton = thisProduct.element.querySelector(select.menuProduct.cartButton);
       thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
+      thisProduct.imageWrapper = thisProduct.element.querySelector(select.menuProduct.imageWrapper);
     }
     initAccordion(){
       const thisProduct = this;
@@ -159,18 +164,29 @@
             
             // check if the option is not default
             if(!option.default){
-              console.log('sraka');
               price += option.price;
-              console.log('optiondefault', option.default);
               
             }
           }
           else if(option.default){
             price -= option.price;
           }
+          console.log('opcje', option);
+          const optionImage = thisProduct.imageWrapper.querySelector('.' + paramId + '-' + optionId);
+          console.log('obrazek', optionImage);
+          
+          if(optionImage) {
+            if (formData[paramId] && formData[paramId].includes(optionId)){
+              optionImage.classList.add(classNames.menuProduct.imageVisible);
+            
+            }
+          
+            else{
+              optionImage.classList.remove(classNames.menuProduct.imageVisible);
+            }
+          }
         }
       }
-
       // update calculated price in the HTML
       thisProduct.priceElem.innerHTML = price;
     }
