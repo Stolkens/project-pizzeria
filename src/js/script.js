@@ -160,7 +160,8 @@
           // console.log('option',option);
           // console.log('formData[paramId]', formData[paramId]);
           // check if there is param with a name of paramId in formData and if it includes optionId
-          if (formData[paramId] && formData[paramId].includes(optionId)){
+          const optionSelected = formData[paramId] && formData[paramId].includes(optionId);
+          if (optionSelected){
             
             // check if the option is not default
             if(!option.default){
@@ -176,7 +177,7 @@
           console.log('obrazek', optionImage);
           
           if(optionImage) {
-            if (formData[paramId] && formData[paramId].includes(optionId)){
+            if (optionSelected){
               optionImage.classList.add(classNames.menuProduct.imageVisible);
             
             }
