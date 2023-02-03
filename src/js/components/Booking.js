@@ -22,24 +22,23 @@ class Booking{
     thisBooking.dom.peopleAmount = element.querySelector(select.booking.peopleAmount);
     thisBooking.dom.hoursAmount = element.querySelector(select.booking.hoursAmount);
 
-    console.log(thisBooking.dom.peopleAmount);
-    console.log(thisBooking.dom.hoursAmount);
+    
 
   }
   initWidgets(){
     const thisBooking = this;
     
     new AmountWidget(thisBooking.dom.peopleAmount);
-    thisBooking.dom.peopleAmount.addEventListener('click', function(event){
+    thisBooking.dom.peopleAmount.addEventListener('update', function(event){
       event.preventDefault();
-      console.log('cokolwiek');
+      
     });
 
 
     new AmountWidget(thisBooking.dom.hoursAmount);
-    thisBooking.dom.hoursAmount.addEventListener('click', function(event){
+    thisBooking.dom.hoursAmount.addEventListener('update', function(event){
       event.preventDefault();
-      console.log('bleeee');
+      
     });
   }
 }
