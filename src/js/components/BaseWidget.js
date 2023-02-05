@@ -6,21 +6,32 @@ class BaseWidget {
     thisWidget.dom = {};
     thisWidget.dom.wrapper = wrapperElement;
 
-    thisWidget.value = inicialValue;
+    thisWidget.correctValue = inicialValue;
   }
-  setValue(value){
+  get value () {
+    const thisWidget = this;
+
+    return thisWidget.correctValue;
+  }
+  set value(value){
     const thisWidget = this;
     const newValue = thisWidget.parseValue(value);
 
     /* TODO: Add validation */
-    if(thisWidget.value!== newValue && thisWidget.isValid(newValue)){
+    if(thisWidget.correctValue!== newValue && thisWidget.isValid(newValue)){
       
-      thisWidget.value = newValue;
+      thisWidget.correctValue = newValue;
     }
     thisWidget.announce(); /* czy aby nie wyżej?? */
     thisWidget.renderValue();
 
   }
+  setValue(value) {
+    const thisWidget = this;
+
+    thisWidget.value = value;
+  }
+
   parseValue(value){
     return parseInt(value);
   }
