@@ -125,7 +125,7 @@ export const settings = {
     dateStartParamKey: 'date_gte',
     dateEndParamKey: 'date_lte',
     notRepeatParam: 'repeat=false',
-    repeatParam: 'repeat_ne=false'
+    repeatParam: 'repeat_ne=false',
   },
   
   // CODE ADDED END

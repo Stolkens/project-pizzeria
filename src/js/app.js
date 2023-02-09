@@ -98,7 +98,6 @@ const app = {
   initBooking: function(){
     
     const widgetWrapper = document.querySelector(select.containerOf.booking);
-    console.log(widgetWrapper);
     new Booking(widgetWrapper);
 
 
