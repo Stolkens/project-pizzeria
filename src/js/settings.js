@@ -120,8 +120,8 @@ export const settings = {
     // CODE ADDED START
     product: 'product',
     order: 'order',
-    booking: 'booking',
-    event: 'event',
+    bookings: 'booking',
+    events: 'event',
     dateStartParamKey: 'date_gte',
     dateEndParamKey: 'date_lte',
     notRepeatParam: 'repeat=false',
