@@ -11,6 +11,9 @@ class Booking{
     thisBooking.render(element);
     thisBooking.initWidgets();
     thisBooking.getData();
+    thisBooking.selectedTable;
+    
+    
   }
   getData(){
     const thisBooking = this;
@@ -128,10 +131,38 @@ class Booking{
       else{
         table.classList.remove(classNames.booking.tableBooked);
       }
-      console.log(thisBooking.dom.table);
+     
     }
     
   }
+  initTables(event){
+    const thisBooking = this;
+
+    for(let table of thisBooking.dom.tables){ /* dla każdego stolika usuwa klasę 'selected'*/
+      if(table.classList.contains(classNames.booking.tableselected)){
+        table.classList.remove(classNames.booking.tableselected);
+      } 
+    }
+    
+
+    if(event.target.classList.contains('table')){ /* jeśli klikniety element ma klase 'table'*/
+      const table = event.target;
+      // console.log('to jest stolik', table);
+      if(table.classList.contains(classNames.booking.tableBooked)){ /* jesli stolik zawiera klase 'booked'*/
+        // thisBooking.dom.alert = utils.createDOMFromHTML('This table is booked'); 
+        // thisBooking.dom.tablesWrapper.appendChild(thisBooking.dom.alert);
+        return window.alert('This table is booked'); /* to wyswietl alert*/
+      }
+      if (!table.classList.contains(classNames.booking.tableselected)){ /* jesli klikniety stolik nie posiada klasy 'selected'*/
+
+        table.classList.add(classNames.booking.tableselected);    /* to dodaj klase 'selected'*/ 
+        
+        thisBooking.selectedTable = table.getAttribute(settings.booking.tableIdAttribute);  /* przypisz atrubut kliknietego stolika do thisBooking.selectedTable*/
+        console.log('thisBooking.selectedTable', thisBooking.selectedTable);
+      }
+    }
+  }
+  
 
   render(element){
     const thisBooking = this;
@@ -149,6 +180,8 @@ class Booking{
     thisBooking.dom.hourPicker = element.querySelector(select.widgets.hourPicker.wrapper);
 
     thisBooking.dom.tables = element.querySelectorAll(select.booking.tables);
+
+    thisBooking.dom.tablesWrapper = element.querySelector(select.containerOf.tables);
     
     
 
@@ -158,18 +191,20 @@ class Booking{
     
     thisBooking.peopleAmount = new AmountWidget(thisBooking.dom.peopleAmount);
    
-
-
     thisBooking.hoursAmount = new AmountWidget(thisBooking.dom.hoursAmount);
     
-
     thisBooking.datePicker = new DatePicker(thisBooking.dom.datePicker);
    
-
     thisBooking.hourPicker = new HourPicker(thisBooking.dom.hourPicker);
    
     thisBooking.dom.wrapper.addEventListener('updated', function(){
       thisBooking.updateDOM();
+    });
+
+    thisBooking.dom.tablesWrapper.addEventListener('click', function(event){
+      event.preventDefault();
+      thisBooking.initTables(event);
+
     });
   }
 }
