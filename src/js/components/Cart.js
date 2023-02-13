@@ -106,7 +106,7 @@ class Cart {
     for(let prod of thisCart.products) {
       payload.products.push(prod.getData());
     }
-    console.log('payload.products', payload.products);
+    // console.log('payload.products', payload.products);
     const options = {
       method:'POST', 
       headers: {

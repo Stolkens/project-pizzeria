@@ -44,6 +44,12 @@ export const select = {
     peopleAmount: '.people-amount',
     hoursAmount: '.hours-amount',
     tables: '.floor-plan .table',
+    form: '.order-confirmation ',
+    duration: '.hours-amount .amount',
+    peopleAmountInput: '.people-amount .amount',
+    formSubmit: '.order-confirmation [type="submit"]',
+    phone: '[name="phone"]',
+    address: '[name="address"]',
   },
   nav: {
     links: '.main-nav a',
@@ -114,6 +120,7 @@ export const settings = {
   },
   booking: {
     tableIdAttribute: 'data-table',
+    
   },// CODE ADDED END
   db: {
     url: '//localhost:3131',
