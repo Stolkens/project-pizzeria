@@ -2,7 +2,9 @@ export const select = {
   templateOf: {
     menuProduct: '#template-menu-product',
     cartProduct: '#template-cart-product', 
-    bookingWidget: '#template-booking-widget',// CODE ADDED
+    bookingWidget: '#template-booking-widget',
+    homePage: '#template-home',
+
   },
   containerOf: {
     menu: '#product-list',
@@ -10,6 +12,7 @@ export const select = {
     pages: '#pages',// CODE ADDED
     booking: '.booking-wrapper',// CODE ADDED
     tables: '.floor-plan',
+    home: '.home-wrapper',
   },
   all: {
     menuProducts: '#product-list > .product',
@@ -131,6 +134,7 @@ export const settings = {
     order: 'order',
     bookings: 'booking',
     events: 'event',
+    home: 'home',
     dateStartParamKey: 'date_gte',
     dateEndParamKey: 'date_lte',
     notRepeatParam: 'repeat=false',
@@ -146,4 +150,5 @@ export const templates = {
   // CODE ADDED START
   bookingWidget: Handlebars.compile(document.querySelector(select.templateOf.bookingWidget).innerHTML),
   // CODE ADDED END
+  homePage: Handlebars.compile(document.querySelector(select.templateOf.homePage).innerHTML),
 };
