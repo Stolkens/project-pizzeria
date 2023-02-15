@@ -13,6 +13,7 @@ export const select = {
     booking: '.booking-wrapper',// CODE ADDED
     tables: '.floor-plan',
     home: '.home-wrapper',
+    carousel: '.main-carousel',
   },
   all: {
     menuProducts: '#product-list > .product',
