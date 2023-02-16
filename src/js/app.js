@@ -45,12 +45,6 @@ const app = {
     const thisApp = this;
     /*add class 'active' to matching pages, remove form non-matching */
     for(let page of thisApp.pages){
-      // if(page.id==pageId){
-      //   page.classList.add(classNames.pages.active);
-      // }
-      // else {
-      //   page.classList.remove(classNames.pages.active);
-      // }
       page.classList.toggle(classNames.pages.active, page.id == pageId);
     }
 
@@ -58,6 +52,8 @@ const app = {
     for(let link of thisApp.navLinks){
       link.classList.toggle(classNames.nav.active, link.getAttribute('href') == '#' + pageId);
     }
+    console.log(thisApp.navLinks);
+    console.log(thisApp.pages);
   },
 
   initMenu: function(){

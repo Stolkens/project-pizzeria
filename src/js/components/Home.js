@@ -8,7 +8,6 @@ class Home {
     thisHome.dom = {};
     thisHome.render(element);
     thisHome.carousel();
-    
   }
   render(element){
     const thisHome = this;
@@ -27,7 +26,6 @@ class Home {
       imagesLoaded: true,
       percentPosition: false,
     });
-
   }
 }    
 

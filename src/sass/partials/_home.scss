@@ -8,7 +8,6 @@
   }
 }
 
-
 .home-wrapper {
   margin: ($base-size * 3.5) auto;
   padding: ($base-size * 6) ($base-size * 4);
@@ -114,10 +113,6 @@
 
 }
 
-// .flickity-page-dots .dot-4 {
-//   display: block;
-// }
-
 /* Gallery */
 
 .gallery-wrapper {
@@ -128,10 +123,58 @@
 
 .gallery-image {
   flex: 33% 0 0;
+  position: relative;
 
-  img {
+  &:hover {
+
+    .fa-heart,
+    .fa-share-nodes {
+      padding-right: 10px;
+      font-size: 25px;
+      font-weight: 600;
+      transition: 0.5s;
+
+      &:hover {
+        color: $color-main;
+      }
+    }
+  }
+
+  .image {
     width: 190px;
     height: 190px;
-
   }
+
+  .gallery-icons {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: $color-light;
+    font-size: 0px;
+    z-index: 2;
+  }
+
+  .image-overlay {
+    width: 190px;
+    height: 190px;
+    background: grey;
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    z-index: 1;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}
+
+/* Footer */
+.footer {
+  a {
+    color: $color-main;
+    font-size: 12px;
+  }
+
 }
